@@ -1,0 +1,23 @@
+
+let g a = a + 1
+let f ~x y z = x + g y + z
+let rec fact n = match n with 0 -> 1 | _ -> n * fact (n-1)
+
+let f3 x = x + 1
+let f4 (x:int) = failwith "ha"
+let f2 (x:int) = f4 (x + 2)
+let f1 x =
+  try
+    f2 x
+  with Failure _ ->
+    f3 x
+  ;;
+
+#trace f1;;
+#trace f2;;
+#trace f4;;
+#trace f3;;
+
+#trace f;;
+#trace g;;
+#trace fact;;

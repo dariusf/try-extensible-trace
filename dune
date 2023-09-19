@@ -1,0 +1,7 @@
+(executable
+ (name main)
+ (libraries compiler-libs.toplevel)
+ (link_flags (-linkall))
+ (modes byte))
+
+(env (dev (flags (:standard -warn-error -A))))
